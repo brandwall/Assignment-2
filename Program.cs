@@ -12,9 +12,10 @@ namespace Övning2
 			{
 				_ui.Print("");
 				_ui.Print("Main menu");
-				_ui.Print($"1. Cinema age discount");
-				_ui.Print($"2. Repeat string x10");
-				_ui.Print($"3. The third word");
+				_ui.Print($"1. Cinema age discount check");
+				_ui.Print($"2. Buy tickets");
+				_ui.Print($"3. Repeat string x10");
+				_ui.Print($"4. The third word");
 				_ui.Print($"0. Exit");
 
 
@@ -31,17 +32,23 @@ namespace Övning2
 						break;
 					case 1:
 						_ui.Clear();
-						_ui.Print("Cinema");
+						_ui.Print("Cinema Discount Check");
 						app = new CinemaDiscountApplication(_ui);
 						app.Run();
 						break;
 					case 2:
 						_ui.Clear();
+						_ui.Print("Cinema");
+						app = new CinemaDiscountApplication(_ui);
+						app.Run();
+						break;
+					case 3:
+						_ui.Clear();
 						_ui.Print("String repetition");
 						app = new StringRepeatApplication(_ui);
 						app.Run();
 						break;
-					case 3:
+					case 4:
 						_ui.Clear();
 						_ui.Print("The third word");
 						app = new StringRepeatApplication(_ui);
