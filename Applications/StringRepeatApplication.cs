@@ -11,7 +11,12 @@ namespace Övning2.Applications
 		public StringRepeatApplication(IUI ui) : base(ui) { }
 		public override void Run()
 		{
+			string message = _ui.PromptInput<string>("Skriv mening som ska upprepas: ");
 
+			for(int i = 1; i <= 10; i++)
+			{
+				_ui.Print($"{i}.{message} ", false);
+			}
 		}
 	}
 }
