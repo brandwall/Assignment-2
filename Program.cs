@@ -11,52 +11,48 @@ namespace Övning2
 			while (true)
 			{
 				_ui.Print("");
-				_ui.Print("Main menu");
-				_ui.Print($"1. Cinema age discount check");
-				_ui.Print($"2. Buy tickets");
-				_ui.Print($"3. Repeat string x10");
-				_ui.Print($"4. The third word");
-				_ui.Print($"0. Exit");
+				_ui.Print("Huvudmeny");
+				_ui.Print($"1. Verifiera ålder för biorabatt");
+				_ui.Print($"2. Köp biobiljetter");
+				_ui.Print($"3. Ord-repeterare");
+				_ui.Print($"4. Skriv-ut-tredje-ordet");
+				_ui.Print($"0. Avsluta");
 
-
-				_ui.Print("Select which program to run:");
-				int option = _ui.Input<int>();
+				int option = _ui.PromptInput<int>("Välj ett av alternativen: ");
 
 				IApplication? app;
 				switch (option)
 				{
 					case 0:
-						_ui.Clear();
-						_ui.Print("Exiting application...");
+						_ui.Print("Avslutar...");
 						_ui.Exit();
 						break;
 					case 1:
 						_ui.Clear();
-						_ui.Print("Cinema Discount Check");
-						app = new CinemaDiscountApplication(_ui);
-						app.Run();
+						_ui.Print("--- Rabattkontroll ---");
+						app = new CinemaDiscountApplication(_ui, "discount");
 						break;
 					case 2:
 						_ui.Clear();
-						_ui.Print("Cinema");
+						_ui.Print("--- Biokassa ---");
 						app = new CinemaDiscountApplication(_ui);
 						app.Run();
 						break;
 					case 3:
 						_ui.Clear();
-						_ui.Print("String repetition");
+						_ui.Print("--- Repetera mening ---");
 						app = new StringRepeatApplication(_ui);
 						app.Run();
 						break;
 					case 4:
 						_ui.Clear();
-						_ui.Print("The third word");
-						app = new StringRepeatApplication(_ui);
+						_ui.Print("--- Skriva ut tredje ordet ---");
+						app = new ThirdWordApplication(_ui);
 						app.Run();
 						break;
 					default:
 						_ui.Clear();
-						_ui.Print("Invalid input. Try again!");
+						_ui.Print("Fel alternativ. Försök igen!");
 						break;
 				}
 
