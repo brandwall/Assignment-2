@@ -8,10 +8,12 @@ namespace Övning2
 {
 	internal class ConsoleUI : IUI
 	{
-		private int _delayMiliseconds;
-		public void Print(string message)
+		public void Print(string message, bool lineBreak = true) // line break är automatiskt aktiverat om man inte skickar in false
 		{
-			Console.WriteLine(message);
+			if (lineBreak)
+				Console.WriteLine(message);
+			else
+				Console.Write(message);
 		}
 
 		public T Input<T>() // Generisk metod som körs tills rätt type har blivit inmatad av användaren
@@ -25,9 +27,15 @@ namespace Övning2
 				}
 				catch
 				{
-					Console.WriteLine("Invalid input. Try again!");
+					Console.WriteLine("Felaktig inmatning. Försök igen! ");
 				}
 			}
+		}
+
+		public T PromptInput<T>(string msg) // Skriver ut ett meddelande och tar sen emot input
+		{
+			Console.Write(msg);
+			return Input<T>();
 		}
 
 		public void Clear()
@@ -38,12 +46,6 @@ namespace Övning2
 		public void Exit()
 		{
 			Environment.Exit(0);
-		}
-
-		public T Input2<T>()
-		{
-			string input = Console.ReadLine() ?? string.Empty;
-			return (T)Convert.ChangeType(input, typeof(T));
 		}
 	}
 }
